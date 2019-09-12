@@ -73,20 +73,6 @@ ul {
  * checkboxes and radios)
  */
 
-input,
-textarea,
-button {
-  border: 0;
-  border-radius: 0;
-  background-color: transparent;
-  font-size: inherit;
-  font-family: inherit;
-  font-weight: inherit;
-  outline: none;
-  appearance: none;
-  text-align: left;
-}
-
 input:hover,
 input:active,
 input:focus,
@@ -179,4 +165,296 @@ body {
   background-image: linear-gradient(to bottom, #fe886a, #ff7033);
   grid-column: -2;
   grid-row: 2 / span 4;
+}
+
+/* ////////////    MIKEs CODE   //////////////////// */
+
+#sciCalBody {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-areas:
+    "dsp dsp dsp dsp dsp dsp dsp dsp dsp dsp"
+    "dsp dsp dsp dsp dsp dsp dsp dsp dsp dsp"
+    "l-paren r-paren mc m+ m- mr C negpos % / "
+    "secNd x2 x3 xy ex tenX seven eight nine multiply"
+    "one/x srqtx cubex ysqrtx ln log four five six minus"
+    "! sin cos tan e EE one two three plus"
+    "rad sinh cosh tanh pi Rand zero zero deci equal";
+}
+
+#sciCalBody {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-areas:
+    "aa aa aa aa aa aa aa aa aa aa"
+    "aa aa aa aa aa aa aa aa aa aa"
+    "ab ac ad ae af ag ah ai aj ak"
+    "bb bc bd be bf bg bh bi bj bk"
+    "cb cc cd ce cf cg ch ci cj ck"
+    "db dc dd de df dg dh di dj dk"
+    "eb ec ed ee ef eg eh ei ej ek";
+}
+
+#sciCalBody {
+  display: grid;
+  background-color: rgba(20, 20, 20, 0.7);
+
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-areas:
+    "aa aa aa aa aa aa aa aa aa aa"
+    "aa aa aa aa aa aa aa aa aa aa"
+    "bb bb bb bb bb bb bb bb bb bb"
+    "cc cc cc cc cc cc cc cc cc cc"
+    "dd dd dd dd dd dd dd dd dd dd"
+    "ee ee ee ee ee ee ee ee ee ee"
+    "ff ff ff ff ff ff ff ff ff ff";
+}
+
+section > button {
+  border-radius: 3px;
+
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: rgba(20, 20, 20, 0.6);
+  color: rgba(210, 210, 210, 0.9);
+
+  font-size: 19px;
+  text-align: center;
+  width: 85px;
+  height: 60px;
+  /* margin-right: 10px; */
+}
+
+section > section button:nth-child(10) {
+  border-radius: 3px;
+  background-color: orange;
+  color: rgba(20, 20, 20, 0.6);
+}
+.color-1 {
+  background-color: lightgray;
+  color: rgba(20, 20, 20, 0.6);
+}
+.color-2 {
+  background-color: darkgray;
+}
+#display {
+  border: 1px solid black;
+
+  width: 100%;
+}
+#display {
+  color: rgba(210, 210, 210, 0.9);
+  text-align: right;
+  background-color: rgba(20, 20, 20, 0.8);
+  width: 100%;
+  font-size: 70px;
+}
+#row1 {
+  /* border: 1px solid black; */
+  grid-area: aa;
+  display: flex;
+  flex-direction: row;
+}
+#row2 {
+  grid-area: bb;
+  display: flex;
+  flex-direction: row;
+}
+#row3 {
+  grid-area: cc;
+  display: flex;
+  flex-direction: row;
+}
+#row4 {
+  grid-area: dd;
+  display: flex;
+  flex-direction: row;
+}
+#row5 {
+  grid-area: ee;
+  display: flex;
+  flex-direction: row;
+}
+#row6 {
+  grid-area: ff;
+  display: flex;
+  flex-direction: row;
+}
+/* Display ROW 1-2 */
+#aa {
+  grid-area: aa;
+}
+
+/* ROW 1  */
+#ab {
+  grid-area: ab;
+}
+#ac {
+  grid-area: ac;
+}
+#ad {
+  grid-area: ad;
+}
+#ae {
+  grid-area: ae;
+}
+#af {
+  grid-area: af;
+}
+#ag {
+  grid-area: ag;
+}
+#ah {
+  grid-area: ah;
+}
+#ai {
+  grid-area: ai;
+}
+#aj {
+  grid-area: aj;
+}
+#ak {
+  grid-area: ak;
+}
+
+/* ROW 2 */
+#ba {
+  grid-area: ba;
+}
+#bb {
+  grid-area: bb;
+}
+#bc {
+  grid-area: bc;
+}
+#bd {
+  grid-area: bd;
+}
+#be {
+  grid-area: be;
+}
+#bf {
+  grid-area: bf;
+}
+#bg {
+  grid-area: bg;
+}
+#bh {
+  grid-area: bh;
+}
+#bi {
+  grid-area: bi;
+}
+#bj {
+  grid-area: bj;
+}
+#bk {
+  grid-area: bk;
+}
+
+/* ROW 3 */
+#ca {
+  grid-area: ca;
+}
+#cb {
+  grid-area: cb;
+}
+#cc {
+  grid-area: cc;
+}
+#cd {
+  grid-area: cd;
+}
+#ce {
+  grid-area: ce;
+}
+#cf {
+  grid-area: cf;
+}
+#cg {
+  grid-area: cg;
+}
+#ch {
+  grid-area: ch;
+}
+#ci {
+  grid-area: ci;
+}
+#cj {
+  grid-area: cj;
+}
+#ck {
+  grid-area: ck;
+}
+
+/* ROW 4 */
+#da {
+  grid-area: da;
+}
+#db {
+  grid-area: db;
+}
+#dc {
+  grid-area: dc;
+}
+#dd {
+  grid-area: dd;
+}
+#de {
+  grid-area: de;
+}
+#df {
+  grid-area: df;
+}
+#dg {
+  grid-area: dg;
+}
+#dh {
+  grid-area: dh;
+}
+#di {
+  grid-area: di;
+}
+#dj {
+  grid-area: dj;
+}
+#dk {
+  grid-area: dk;
+}
+
+/* ROW 5 */
+#ea {
+  grid-area: ea;
+}
+#eb {
+  grid-area: eb;
+}
+#ec {
+  grid-area: ec;
+}
+#ed {
+  grid-area: ed;
+}
+#ee {
+  grid-area: ee;
+}
+#ef {
+  grid-area: ef;
+}
+#eg {
+  grid-area: eg;
+}
+#eh {
+  grid-area: eh;
+}
+#ei {
+  grid-area: ei;
+}
+#ej {
+  grid-area: ej;
+}
+#ek {
+  grid-area: ek;
 }
