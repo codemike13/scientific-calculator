@@ -48,21 +48,19 @@ function calcFunc() {
           NUM_STREAM = false;
           this.reset();
           console.log("Addition 'OFF'");
+          console.log(this.currentValue);
         }
       });
       console.log("Addition 'ON'");
     },
     sub: function() {
       this.position[1].subtraction = true;
-      if (this.valFlag) {
-        NUM_STREAM = true;
-        input.value = input.value;
-        this.valueHold -= input.value;
-      } else {
-        input.value = this.currentValue += Number(input.value * -1);
-        NUM_STREAM = false; // Stop taking in numbers take full number typed.
-        input.value = input.value;
-      }
+      this.valueHold = Number(input.value);
+      input.value = this.valueHold;
+      NUM_STREAM = false; // Stop taking in numbers take full number typed.
+      this.currentValue = this.valueHold;
+      input.value = input.value;
+
       equal.addEventListener("click", () => {
         if (this.position[1].subtraction) {
           this.position[1].last = Number(input.value);
