@@ -7,6 +7,10 @@ const divideButton = document.querySelector(".divide");
 const nums = document.querySelectorAll(".num");
 const clearButton = document.querySelector(".clear");
 const memory = document.querySelector("#historyDisplay");
+const pow2 = document.querySelector(".pow2");
+const pow3 = document.querySelector(".pow3");
+const powY = document.querySelector(".powY");
+
 let NUM_STREAM = false;
 
 nums.forEach(e => {
@@ -77,7 +81,7 @@ function calcFunc() {
     },
     multiply: function() {
       this.position[2].multiplication = true;
-      this.valueHold += Number(input.value);
+      this.valueHold = Number(input.value);
       input.value = this.valueHold;
       NUM_STREAM = false; // Stop taking in numbers take full number typed.
       this.currentValue = this.valueHold;
@@ -86,31 +90,49 @@ function calcFunc() {
       equal.addEventListener("click", () => {
         if (this.position[2].multiplication) {
           this.position[2].last = Number(input.value);
-          this.position[2].val = true;
           this.currentValue *= Number(input.value);
+          this.position[2].val = true;
           input.value = this.currentValue;
           this.valueHold = 0;
           NUM_STREAM = false;
-          this.position[2].multiplication = false;
+          this.reset();
           console.log("Multiplication 'OFF'");
         }
       });
       console.log("Multiplication 'ON'");
     },
     divide: function() {
-      this.position.division = true;
+      this.position[3].division = true;
       this.valueHold = Number(input.value);
-      input.value = "";
+      input.value = this.valueHold;
+      NUM_STREAM = false; // Stop taking in numbers take full number typed.
+      this.currentValue = this.valueHold;
+      input.value = input.value;
       equal.addEventListener("click", () => {
-        if (this.position.division) {
-          this.currentValue = this.valueHold / Number(input.value);
+        if (this.position[3].division) {
+          this.position[3].last = Number(input.value);
+          this.currentValue /= Number(input.value);
+          this.position[3].val = true;
           input.value = this.currentValue;
           this.valueHold = 0;
-          this.position.division = false;
+          NUM_STREAM = false;
+          this.reset();
           console.log("Division 'OFF'");
         }
       });
       console.log("Division 'ON'");
+    },
+    pow2: function() {
+      input.value *= input.value;
+      this.currentValue = input.value;
+    },
+    pow3: function() {
+      input.value = input.value * (input.value * input.value);
+      this.currentValue = input.value;
+    },
+    powY: function() {
+      let x = input.value;
+      input.value = "Enter Y value: ";
     },
 
     clear: function() {
@@ -148,6 +170,12 @@ multiplyButton.addEventListener("click", () => {
 });
 divideButton.addEventListener("click", () => {
   calc.divide();
+});
+pow2.addEventListener("click", () => {
+  calc.pow2();
+});
+pow3.addEventListener("click", () => {
+  calc.pow3();
 });
 memory.addEventListener("focus", () => {
   memory.value = "";
