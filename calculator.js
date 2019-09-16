@@ -22,20 +22,74 @@ function calcFunc() {
     valueHold: 0,
     currentValue: 0,
 
-    arithmeticPosition: [],
+    arithmeticPosition: [
+      {
+        addition: false,
+        subtraction: false,
+        multiplication: false,
+        division: false
+      }
+    ],
 
     add: function() {
+      this.arithmeticPosition.addition = true;
       this.valueHold = Number(input.value);
       input.value = "";
       equal.addEventListener("click", () => {
-        this.currentValue = this.valueHold + Number(input.value);
-        // this.currentValue = this.valueHold + nextValue;
-        input.value = this.currentValue;
-        this.valueHold = 0;
+        if (this.arithmeticPosition.addition) {
+          this.currentValue = this.valueHold + Number(input.value);
+          input.value = this.currentValue;
+          this.valueHold = 0;
+          this.arithmeticPosition.addition = false;
+          console.log("Addition 'OFF'");
+        }
       });
+      console.log("Addition 'ON'");
     },
     sub: function() {
-      input.value = this.currentValue;
+      this.arithmeticPosition.subtraction = true;
+      this.valueHold = Number(input.value);
+      input.value = "";
+      equal.addEventListener("click", () => {
+        if (this.arithmeticPosition.subtraction) {
+          this.currentValue = this.valueHold - Number(input.value);
+          input.value = this.currentValue;
+          this.valueHold = 0;
+          this.arithmeticPosition.subtraction = false;
+          console.log("Subtraction 'OFF'");
+        }
+      });
+      console.log("Subtraction 'ON'");
+    },
+    multiply: function() {
+      this.arithmeticPosition.multiplication = true;
+      this.valueHold = Number(input.value);
+      input.value = "";
+      equal.addEventListener("click", () => {
+        if (this.arithmeticPosition.multiplication) {
+          this.currentValue = this.valueHold * Number(input.value);
+          input.value = this.currentValue;
+          this.valueHold = 0;
+          this.arithmeticPosition.multiplication = false;
+          console.log("Multiplication 'OFF'");
+        }
+      });
+      console.log("Multiplication 'ON'");
+    },
+    divide: function() {
+      this.arithmeticPosition.division = true;
+      this.valueHold = Number(input.value);
+      input.value = "";
+      equal.addEventListener("click", () => {
+        if (this.arithmeticPosition.division) {
+          this.currentValue = this.valueHold / Number(input.value);
+          input.value = this.currentValue;
+          this.valueHold = 0;
+          this.arithmeticPosition.division = false;
+          console.log("Division 'OFF'");
+        }
+      });
+      console.log("Division 'ON'");
     },
 
     clear: function() {
@@ -55,6 +109,12 @@ addButton.addEventListener("click", () => {
 });
 subButton.addEventListener("click", () => {
   calc.sub();
+});
+multiplyButton.addEventListener("click", () => {
+  calc.multiply();
+});
+divideButton.addEventListener("click", () => {
+  calc.divide();
 });
 clearButton.addEventListener("click", () => {
   calc.clear();
