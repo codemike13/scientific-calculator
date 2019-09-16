@@ -6,14 +6,14 @@ const multiplyButton = document.querySelector(".multiply");
 const divideButton = document.querySelector(".divide");
 const nums = document.querySelectorAll(".num");
 const clearButton = document.querySelector(".clear");
+const memory = document.querySelector("#historyDisplay");
+let numStream = false;
 
 nums.forEach(e => {
   e.addEventListener("click", evt => {
-    if (input.value === 00) {
-      input.value * 100;
-    } else {
-      input.value += evt.target.innerText;
-    }
+    if (!numStream) input.value = "";
+    numStream = true;
+    input.value += evt.target.innerText;
   });
 });
 
@@ -21,25 +21,31 @@ function calcFunc() {
   let obj = {
     valueHold: 0,
     currentValue: 0,
-
+    memLength: 0,
+    mathMemory: {
+      memCount: 0,
+      mem: []
+    },
     arithmeticPosition: [
-      {
-        addition: false,
-        subtraction: false,
-        multiplication: false,
-        division: false
-      }
+      { addition: false, addPlus: false },
+      { subtraction: false, subPlus: false },
+      { multiplication: false, multPlus: false },
+      { division: false, divplus: false }
     ],
 
     add: function() {
       this.arithmeticPosition.addition = true;
-      this.valueHold = Number(input.value);
-      input.value = "";
+      this.currentValue += Number(input.value);
+      input.value = this.currentValue;
+      numStream = false;
+      input.value = input.value;
+      console.log(this.currentValue);
+
       equal.addEventListener("click", () => {
         if (this.arithmeticPosition.addition) {
-          this.currentValue = this.valueHold + Number(input.value);
+          this.currentValue += Number(input.value);
           input.value = this.currentValue;
-          this.valueHold = 0;
+
           this.arithmeticPosition.addition = false;
           console.log("Addition 'OFF'");
         }
@@ -116,6 +122,15 @@ multiplyButton.addEventListener("click", () => {
 divideButton.addEventListener("click", () => {
   calc.divide();
 });
+memory.addEventListener("focus", () => {
+  memory.value = "";
+  memory.value = memory.value;
+});
+memory.addEventListener("focusout", () => {
+  memory.value = `Mem length : ${memory.value}`;
+  calc.memLength = Number(memory.value);
+});
+
 clearButton.addEventListener("click", () => {
   calc.clear();
 });
