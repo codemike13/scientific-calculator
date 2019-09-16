@@ -107,41 +107,17 @@ body {
 
 #sciCalBody {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(7, 1fr);
-  grid-template-areas:
-    "dsp dsp dsp dsp dsp dsp dsp dsp dsp dsp"
-    "dsp dsp dsp dsp dsp dsp dsp dsp dsp dsp"
-    "l-paren r-paren mc m+ m- mr C negpos % / "
-    "secNd x2 x3 xy ex tenX seven eight nine multiply"
-    "one/x srqtx cubex ysqrtx ln log four five six minus"
-    "! sin cos tan e EE one two three plus"
-    "rad sinh cosh tanh pi Rand zero zero deci equal";
-}
-
-#sciCalBody {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(7, 1fr);
-  grid-template-areas:
-    "aa aa aa aa aa aa aa aa aa aa"
-    "aa aa aa aa aa aa aa aa aa aa"
-    "ab ac ad ae af ag ah ai aj ak"
-    "bb bc bd be bf bg bh bi bj bk"
-    "cb cc cd ce cf cg ch ci cj ck"
-    "db dc dd de df dg dh di dj dk"
-    "eb ec ed ee ef eg eh ei ej ek";
-}
-
-#sciCalBody {
-  display: grid;
   background-color: rgba(20, 20, 20, 0.7);
 
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(7, 1fr);
+  grid-template-rows: repeat(11, 1fr);
   grid-template-areas:
     "aa aa aa aa aa aa aa aa aa aa"
     "aa aa aa aa aa aa aa aa aa aa"
+    "yy yy yy .  .  .  .  ww ww ww"
+    "zz zz zz zz zz zz zz zz zz zz"
+    "zz zz zz zz zz zz zz zz zz zz"
+    "zz zz zz zz zz zz zz zz zz zz"
     "bb bb bb bb bb bb bb bb bb bb"
     "cc cc cc cc cc cc cc cc cc cc"
     "dd dd dd dd dd dd dd dd dd dd"
@@ -162,19 +138,6 @@ section > button {
   height: 60px;
   /* margin-right: 10px; */
 }
-.calculatorKeys {
-  background-color: #999;
-  display: grid;
-  grid-gap: 1px;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.calculatorKeys > * {
-  background-color: #fff;
-  padding: 0.5em 1.25em;
-  position: relative;
-  text-align: center;
-}
 
 section > section button:nth-child(10) {
   border-radius: 3px;
@@ -190,22 +153,39 @@ section > section button:nth-child(10) {
 }
 
 #display {
-  border: 1px solid black;
-
-  width: 100%;
-}
-#display {
+  border: none;
   color: rgba(210, 210, 210, 0.9);
   text-align: right;
   background-color: rgba(20, 20, 20, 0.8);
   width: 100%;
   font-size: 70px;
 }
+#historyDisplay {
+  border: none;
+  color: rgba(210, 210, 210, 0.9);
+  text-align: center;
+  background-color: transparent;
+  width: 75%;
+  font-size: 15px;
+}
 #row1 {
   /* border: 1px solid black; */
   grid-area: aa;
   display: flex;
   flex-direction: row;
+}
+
+#debugger {
+  grid-area: zz;
+  text-align: left;
+  color: rgba(100, 210, 100, 0.4);
+  overflow: scroll;
+}
+#historyLength {
+  grid-area: yy;
+}
+#currentValue {
+  grid-area: ww;
 }
 #row2 {
   grid-area: bb;
